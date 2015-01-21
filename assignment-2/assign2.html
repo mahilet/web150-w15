@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+
+<title>assign2</title>
+
+<meta charset="utf8">
+</head>
+<body>
+This is blank space on assignment 2
+
+<script>
+
+
+
+     //using "confirm" function and "console" function
+	 var orthodox = confirm("Are you Orthodox?");
+		if (!orthodox){
+			console.log("Eat whatever you like");
+		}
+		else {
+			console.log("fasting is not eating any meat products");
+	 
+			var month = prompt("what month is it?");
+			console.log(month);
+			month = month.toLowerCase();
+			var message = "Your are fasting " + month + ", eat like a vegan";
+			
+			// tried to use:
+			//if (month == "febuary" || "march"){
+			//and it broke the other conditionals
+			
+			
+				if (month == "febuary"){
+					console.log(message);	     				
+					}
+					
+				else if (month == "march"){
+					console.log(message);
+					}
+				else if (month == "april"){
+					console.log(message);
+					}
+				else {
+					  var day = prompt("what day is it?");
+					  day = day.toLowerCase();
+					  
+					  switch(day) {
+					  case "friday":
+					  console.log("its friday, you are fasting");
+					   break;
+					  }
+						if (day == "wednesday") {
+						console.log("Your are wednesday, eat like a vegan");
+						}
+					
+						else{
+							console.log("you can eat Kitfo today ");
+							var pounds = prompt("how many pounds of kitfa will you eat 0-3?");
+							pounds = Number(pounds);
+							if(pounds==0) {
+							console.log("you should meat when you are not fasting!!!!");
+							}
+							else if (pounds < 3){
+							console.log("its not enough");
+							}
+							
+							else {
+							console.log("thats way too much thank you for visiting");
+
+							}
+						}
+				}
+				}	
+					
+	
+
+
+</script>
+
+</body>
+
+
+</html>
