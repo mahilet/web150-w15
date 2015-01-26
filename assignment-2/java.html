@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+
+<title>assign2</title>
+
+<meta charset="utf8">
+</head>
+<body>
+This is blank space on assignment 2
+
+<script>
+     //using "confirm" function and "console" function
+var orthodox = confirm("Are you Orthodox?");
+if (!orthodox){
+console.log("Eat whatever you like");
+}
+else {
+console.log("fasting is not eating any meat products");
+ 
+var month = prompt("what month is it?");
+//console.log(month);
+month = month.toLowerCase();
+// tried to use:
+//if (month == "febuary" || "march"){
+//and it broke the other conditionals
+switch(month){
+case "january":
+  case "february":
+  case "march":
+  case "april":
+var message = "Your are fasting ";
+console.log(message);
+ break;
+ 
+
+default:
+var day = prompt("what day is it?");
+day = day.toLowerCase();
+//var message2 = "Your are fasting " + month + ", eat like a vegan";
+switch(day){
+case "wednesday":
+case "friday":
+var message2 = "Your are fasting " + month + ", eat like a vegan";
+console.log(message2);
+break;
+case "sunday":
+case "monday":
+case "tuesday":
+case "thursday":
+case "saturday":
+var message3 = "you can eat Kitfo today";
+console.log(message3);
+var pounds = prompt("how many pounds of kitfa will you eat 0-3?");
+pounds = Number(pounds);
+if(pounds==0) {
+console.log("you should meat when you are not fasting!!!!");
+}
+else if (pounds <=3){
+console.log("its not enough");
+}
+else {
+console.log("thats way too much thank you for visiting");
+}
+}
+}
+}
+ 
+ 
+</script>
+
+</body>
+
+
+</html>
