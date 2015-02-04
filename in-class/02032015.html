@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>jQuery!</title>
+  </head>
+  <body>
+
+<p class="hello" id= "world">
+ <span>
+   This is space <b> internationally </b>  left blank
+   </span>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<p>
+  This is a second paragraph.
+    <script>
+//  var paragraphs = $("p:first");
+  //var paragraphs =$("p:odd");
+  //var paragraphs =$("p:nowhere");
+  var paragraphs = $("p.hello");
+  if(paragraphs.length == 0){
+
+  console.log("Nothing found");
+}
+paragraphs.html("Set from jQuery!");
+paragraphs.css("background","cadetblue");
+paragraphs.fadeOut(3*1000);
+paragraphs.fadeIn(5*1000);
+//paragraphs.slideUp();
+//paragraphs.slideDown();
+
+//var b = $("p.hello b" );
+var b = paragraphs.find("b" );
+b.css("color","red");
+var span =  $(" b" ).closest("span");
+//span.slideUp
+span.css =  $(" b" ).closest("span");
+
+
+  //  var lis = document.getElementsByTagName();
+     </script>
+</body>
+</html>
