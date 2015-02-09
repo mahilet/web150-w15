@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>Assignment-4</title>
+  </head>
+  <body>
+
+    Top Companies
+
+    <script src="http://thomaswilburn.net/scc/data/companies.js"></script>
+	
+    <script>
+	
+// console.log(companies[0]);
+ // for (var i = 0; i < companies.length; i++) {
+  // console.log(companies[i]);
+// }
+
+//What's the smallest company (in terms of employee count) on the list?
+
+var smallest = companies[0];
+for (var i = 0; i < companies.length; i++) {
+  var employeesCount = companies[i];
+  if (smallest.employees > employeesCount.employees) {
+    smallest = employeesCount;
+  }
+}
+console.log("The Smallest Company is ", smallest.company, "It has ",smallest.employees, " employees.")
+
+//Several companies lost money this year: they had a negative profit. What were these companies? 
+
+// find the highest proportional increase in cars
+
+var x = companies[0];
+for (var i = 0; i < companies.length; i++) {
+	var item = companies[i];
+	if (item.profit < 0){
+	x = item;
+	}
+
+}
+console.log(x.company, x.profit );
+
+
+var y = companies[0];
+for (var i = 0; i < companies.length; i++) {
+  var mktCap = companies[i];
+  if (y.marketCap > mktCap.marketCap) {
+    y = employeesCount;
+  }
+  
+}
+console.log("The Smallest Company is ", smallest.company, "It has ",smallest.employees, " employees.")
+
+    </script>
+  </body>
+</html>
+
+
+
+<!-- -->
