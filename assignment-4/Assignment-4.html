@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>Assignment-4</title>
+  </head>
+  <body>
+
+    Top Companies
+
+    <script src="http://thomaswilburn.net/scc/data/companies.js"></script>
+   
+    <script>
+   
+// console.log(companies[0]);
+ // for (var i = 0; i < companies.length; i++) {
+  // console.log(companies[i]);
+// }
+
+//What's the smallest company (in terms of employee count) on the list?
+
+var smallest = companies[0];
+for (var i = 0; i < companies.length; i++) {
+  var company = companies[i];
+  if (smallest.employees > company.employees) {
+    smallest = company;
+  }
+}
+console.log("The Smallest Company is ", smallest.company, "It has ",smallest.employees, " employees.")
+
+//Several companies lost money this year: they had a negative profit. What were these companies?
+
+
+
+var lostMoneyCompany = companies[0];
+for (var i = 0; i < companies.length; i++) {
+    var company = companies[i];
+    if (company.profit < 0){
+    lostMoneyCompany = company;
+	console.log(lostMoneyCompany.company, lostMoneyCompany.profit );
+    }
+
+}
+
+// What's the average market cap for companies in the manufacturing sector? 
+
+var totalMarketCap = 0;
+var averageMarketCap = 0;
+var numCompanies = 0;
+
+for (var i = 0; i < companies.length; i++) {
+  var company = companies[i];
+  if (company.sector === "manufacturing") {
+	numCompanies++;
+    //totalMarketCap += company.marketCap;
+	totalMarketCap = totalMarketCap + company.marketCap;
+  }
+}
+
+//Which sector has the highest number of employees? Which has the lowest? 
+
+averageMarketCap = totalMarketCap / numCompanies;
+console.log("The average market cap for companies in the manufacturing sector is ", averageMarketCap);
+
+
+var smallest = companies[0];
+var biggest = companies[0];
+for (var i = 0; i < companies.length; i++) 
+	{
+		var company = companies[i];
+		if (smallest.employees > company.employees) {
+		smallest = company;}
+		if (biggest.employees < company.employees) {
+		biggest = company;
+	}
+}
+
+console.log("The sector with the lowest number of employees is ", smallest.sector, " and the sector with the highest number of employees is ", biggest.sector);
+
+//Which company had the highest gain in ranking from the previous year, and which had the highest drop in ranking? 
+
+var highestGain = companies[0];
+var highestDrop = companies[0];
+
+for (var i = 0; i < companies.length; i++) {
+    var company = companies[i];
+	
+	if (company.previous !== "")
+	{
+		var changeInRanking = company.rank - company.previous;
+		
+		if ((highestGain.rank - highestGain.previous) > changeInRanking){
+			highestGain = company;
+		}
+		if ((highestDrop.rank - highestDrop.previous) < changeInRanking){
+			highestDrop = company;
+		}
+	}
+}
+console.log("The company with the highest gain in ranking is", highestGain.company, "and the company with the highest drop in ranking is", highestDrop.company);
+
+    </script>
+  </body>
+</html>
+
+
+
+<!-- -->
