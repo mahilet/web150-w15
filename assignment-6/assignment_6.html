@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<title>6 - Dog Solution</title>
+ 
+<style>
+button{
+	font-size: 1em;
+	text-align: center;
+	margin-bottom: 20px;
+}
+body {
+	font-size: 1.2em;
+	padding: 20px;
+	text-align: left;
+}
+
+
+table{
+<!--background-color: brown; --> 
+	border-collapse: collapse;
+	box-shadow: 0px 5px 3px 5px;
+	width: 50%;
+	border-collapse: collapse;
+	margin-t: 20px;
+	margin-top: 20px;
+ 
+}
+div {
+	margin-bottom: 20px;
+	height: 30px;
+
+}
+	thead {
+	background-color: #ccc;
+	height: 50px;
+	text-align: center;
+
+}
+table, th, td {
+	border: 1px solid black;
+	height: 30px;
+
+}
+
+ 
+
+</style>
+</head>
+
+<body>
+<!--https://www.petfinder.com/dog-breeds--> 
+<div class="buttons">
+<button class="filter" data-filter="small">Small</button>
+<button class="filter" data-filter="medium">Medium</button>
+<button class="filter" data-filter="large">Large</button>
+<button class="filter" data-filter="white">White</button>
+<button class="filter" data-filter="black">Black</button>
+<button class="filter" data-filter="brown">Brown</button>
+<button class="filter" data-filter="male">Male</button>
+<button class="filter" data-filter="female">Female</button>
+<button class="reset">RESET</button>
+ 
+</div>
+
+<table>
+	<thead>
+		<tr  >
+			<td class="name">Name</td>
+			<td class="breed">Breed</td>
+			<td class="sex">Sex</td>
+			<td class="size">Size </td>
+			<td class="color">Color</td> 
+		</tr>	
+	</thead>
+	<tbody>
+		<tr class="row name breed male small black">
+			<td>Bob</td>
+			<td>Affenpinscher</td>
+			<td>Male</td>
+			<td>Small </td>
+			<td>Black</td> 
+		</tr>
+		
+		 <tr class="row name breed female medium black">
+			<td>Koko</td>
+			<td>Akita</td>
+			<td>Female</td>
+			<td>Medium </td>
+			<td>Black</td> 
+		<tr class="row name breed female large white">
+			<td>Mydog</td>
+			<td>American Cocker Spaniel</td>
+			<td>Female</td>
+			<td>Large </td>
+			<td>white</td>
+		</tr>	
+		<tr class="row name breed male small white">
+			<td>Foxy</td>
+			<td>Bravo</td>
+			<td>Male</td>
+			<td>small </td>
+			<td>White</td>
+		</tr>	
+		<tr class="row name breed female medium white">
+			<td>Nole</td>
+			<td>American Water Spaniel</td>
+			<td>Female</td>
+			<td>Medium </td>
+			<td>White</td>
+		</tr>	
+		<tr class="row name breed male large brown">
+			<td>Adam</td>
+			<td>Bravo</td>
+			<td>Male</td>
+			<td>Large </td>
+			<td>Brown</td>
+		</tr>	
+		<tr class="row name breed female small black">
+			<td>Kent</td>
+			<td>Basset Hound</td>
+			<td>Female</td>
+			<td>Small </td>
+			<td>Black</td>
+		</tr>	
+		<tr class="row name breed male large white">
+			<td>Kenny</td>
+			<td>Bertha</td>
+			<td>Male</td>
+			<td>Large </td>
+			<td>White</td>
+		</tr>	
+		<tr class="row name breed male medium brown">
+			<td>Comet</td>
+			<td>Alex</td>
+			<td>Male</td>
+			<td>Medium </td>
+			<td>Brown</td>
+		</tr>	
+		</tbody>
+</table>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+
+ 
+ var rows = $(".row");
+ var filterButtons = $(".filter");
+ 
+filterButtons.on("click", function() {
+  var $this = $(this);
+  var filter = $this.attr("data-filter"); 
+   
+  // hide all rows
+  rows.hide(); 
+
+  // show rows matching the filter
+  var selector = "." + filter;
+  // $(selector).show();
+  rows.filter(selector).show();
+});
+
+var resetButton = $(".reset");
+	resetButton.on("click", function() { 
+		rows.show();
+	});
+
+</script>
+</body>
+</html>
+
+<!-- -->
