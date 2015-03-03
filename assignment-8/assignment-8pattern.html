@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<body>
+    <form action="/formhandler.php"> 
+		<label>Vowel Only</label>
+		<br>
+        <input pattern="^[aeiuoAEIOU]+$" data-error="Please enter a vowels only."> 
+		<span class="error"></span>
+			<br>	<br>
+			
+			
+		<label>Text ending with "ING"</label>
+		<br>
+        <input pattern=".+ing?"  data-error="Please enter a word ending with 'ing'."> 
+		<span class="error"></span>
+		<br>
+		<br>
+		
+		<input type="submit">
+		<br>
+		 </form>
+		
+      
+		  <!-- 
+		  <label>Numbers</label>
+		<br>
+		  <button class="toBeChecked" type="button">I'm number</button>-->
+		 <h3>Enter  some numbers</h3></br>
+    <input class="nums"></br>
+    <input type="submit" value="validateNums" disabled="disabled" /> 
+		<br>
+		<br>
+		
+         </form>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $('input[type=submit]').on('click', function(e) {
+            var $this = $(this);
+            var form = $this.closest('form');
+            var inputs = form.find('input[pattern]');
+            for (var i = 0; i < inputs.length; i++) {
+                input = inputs.eq(i);
+                var pattern = input.attr('pattern');
+                var regex = RegExp(pattern);
+                var valid = regex.test(input.val());
+                if (!valid) {
+                    e.preventDefault();
+                    var error = input.attr('data-error');
+                    input.next('.error').html(error);
+                    input.addClass('invalid');
+                } else {
+                    input.next('.error').html('');
+                    input.removeClass('invalid');
+                }
+            }
+			
+        });
+		</script>
+		    <script>
+
+
+		var isNums = $(".nums");
+		isNums.on("change", function() {
+		  var regex = /^[\-.,\d]+$/;
+		  var $this = $(this);
+		  var value = $this.val();
+		  var valid = regex.test(value);
+
+		if (valid) {
+		  $("input[type=submit]").removeAttr("disabled");
+		} else {
+		  $("input[type=submit]").css("outline" , "red solid 3px ");
+		}
+});
+    </script>
+</body>
+
+</html>

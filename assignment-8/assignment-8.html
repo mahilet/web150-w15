@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Forms of (Regular) Expression</title>
+    <meta charset=utf8>
+  <style>
+  
+p.error1 {
+  color: orange;
+  font-size: 2em;
+  }
+  
+  </style>
+  </head>
+  <body>
+  
+  
+  <form>
+  <br>
+	<label>  Type only vowels </label>
+	<input class="text">
+	<br>
+	<span class="message"></span>
+	  <p class = "error1"> Please enter only vowels</p>
+	  <br>
+	<label>Enter something that ends in 'ing'</label>
+	  <br>    <br>
+	 <input class="text2">
+	   <br>     <br>
+	   
+	<label> Numbers those with commas, one decimal place, and a negative sign</label>
+		   <br>     <br>
+	  <input class="nums"></br>
+		   <br>     <br>
+	 <input type="submit" value="validateNums" disabled="disabled" />
+</form>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+	
+	//Type only vowels
+	
+	var vowels = $(".text");
+	vowels.on("change", function() {
+	  var re = /^[aeiou]*$/i;
+	  var $this = $(this);
+	  var value = $this.val();
+	  var valid = re.test(value);
+	  if (valid) {
+		$this.css("outline", "");
+		var error1 = $('p.error1');
+		error1.css('color', 'white');
+	  } else {
+
+	  var error1 = $('p.error1');
+		error1.css('color', 'red');
+
+		$this.css("outline", "6px solid red");
+	  }
+	});
+    </script>
+
+
+    <script>
+
+// Text ending with "ING"
+	var hasing = $(".text2");
+	hasing.on("change", function() {
+	  var re = /ing?/i;
+	  var $this = $(this);
+	  var value = $this.val();
+	  var valid = re.test(value);
+	  if (valid) {
+
+		$this.css("outline", "");
+	  } else {
+		$this.css("outline", "6px solid orange");
+	  }
+	})
+
+        </script>
+
+    <script>
+    // Input for numbers including those with commas, one decimal place, and a negative sign
+
+		  var isNums = $(".nums");
+		  isNums.on("change", function() {
+			var regex = /^[\-.,\d]+$/;
+			var $this = $(this);
+			var value = $this.val();
+			var valid = regex.test(value);
+
+		  if (valid) {
+			$("input[type=submit]").removeAttr("disabled");
+		  } else {
+			$("input[type=submit]").css("outline" , "red solid 3px ");
+		  }
+		  });
+</script>
+</body>
+</html>
