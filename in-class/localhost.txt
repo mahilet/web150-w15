@@ -1,0 +1,5 @@
+From start menu, open bash
+cd Desktop to change directory
+npm install htpp-server -g
+http-server -p 8000 to start your local server
+open a browser to localhost:8000
