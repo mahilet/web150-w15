@@ -12,7 +12,7 @@
 			
 		<label>Text ending with "ING"</label>
 		<br>
-        <input pattern=".+ing?"  data-error="Please enter a word ending with 'ing'."> 
+        <input pattern="ing$"  data-error="Please enter a word ending with 'ing'."> 
 		<span class="error"></span>
 		<br>
 		<br>
@@ -42,7 +42,7 @@
             for (var i = 0; i < inputs.length; i++) {
                 input = inputs.eq(i);
                 var pattern = input.attr('pattern');
-                var regex = RegExp(pattern);
+                var regex = RegExp(pattern, "i");
                 var valid = regex.test(input.val());
                 if (!valid) {
                     e.preventDefault();
