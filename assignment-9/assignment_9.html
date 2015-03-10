@@ -47,7 +47,8 @@
         request.done(function(data) {
           console.log(data);
            $.each(data.updates, function(i,item) {
-              output.append( "<b>" + item.name + "</b>" + ": " + "<br>"  + item.status  + "<br>" + "<br>").css("padding-left", "20px");
+              output.append( "<b>" + item.name + "</b>" + ": " + "<br>" 
+               + item.status  + "<br>" + "<br>").css("padding-left", "20px");
                  
             });
        
