@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8">
+
+    <style>
+
+
+    </style>
+    <title> Functional style </title>
+    </head>
+    <body>
+     <ul>
+       <li> Mimi
+       <li> Mickey
+       <li> Jade
+       <li> Ruby
+        <li> Joy
+     </ul>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+   <script>
+var numbers = [ 1,2,3,4,5];
+var loop = function(a, fn){
+for (var i=0; i<a.length; i++){
+  var item = a[i];
+  fn(item, i, a);
+  //console.log (item);
+}
+};
+var log = function (value){
+  console.log (value);
+}
+
+ loop(numbers, log);
+ loop (["a", "b", "c"], log);
+
+ var double =[];
+ loop(numbers, function(item){
+   double.push(item*2);
+ });
+
+
+ numbers.forEach(function(item){
+   double.push(item*2);
+
+
+ });
+
+ console.log(double);
+
+ var tripled = numbers.map(function(val){
+   return val * 3;
+ });
+
+ // var tripled = numbers.map(x => x * 3);
+ console.log(tripled);
+
+var odd = numbers.filter(function(item){
+  return item %2;
+});
+
+console.log(odd);
+
+var menu = [{
+  name : "cheezburger",
+  price : 2.99
+
+}, {
+  name : "Apple pie",
+  price : 0.99
+
+}, {
+  name : "Fries",
+  price : 7.99
+
+}];
+
+menu.sort(function(a, b){
+  //return -1 if a comes first
+  //return 1 if b comes first
+  //return 0 if they's the  some
+  if (a.name < b.name) return -1;
+  if (b.name < a.name) return 1;
+  return 0;
+
+});
+
+console.log(menu);
+
+var inlaws =$("li");
+
+// for (var i=0; i< inlaws.length; i++)
+// var inlaw = inlaws.get(i);
+//...
+//}
+
+inlaws.each(function(i, inlaw){
+
+  var $inlaw =$(inlaw);
+  var text = $inlaw.html();
+  if (text[1] == "M"){
+    $inlaw.css("color", "red");
+
+  }else if (text[1] =="J"){
+    $inlaw.css("color", "blue");
+  }
+//  // var css = function(prop, val){
+//  //  this.each(function(i, item){
+//  //  item.style[prop] = val;
+// });
+
+
+
+
+          </script>
+    </body>
+    </html>
