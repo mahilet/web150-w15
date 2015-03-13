@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8">
+
+    <style>
+
+
+    </style>
+    <title>Framazon.com </title>
+    </head>
+    <body>
+
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+         <script>
+
+var Timer = function (duration,repeat){
+  this.duration = duration;
+  this.repeat = repeat;
+  this.start;
+
+
+// this.wait(500, function(){
+//   console.log("BRIIING!");
+//
+// });
+
+};
+
+Timer.prototype ={
+  onTick : function(){},
+  onComplete : function(){},
+  wait: function(duration, fn){
+var t=  setTimeout(fn.bind(this), duration);
+
+  },
+  tick : function() {
+    if (!this.complete){
+      this.onTick();
+      this.wait(1000,this.tick);
+    }
+
+  },
+
+  start : function () {
+    this.wait(this.duration, function(){
+      this.onComplete= true;
+      this.onComplete();
+      if (this.repeat) {
+        this.start();
+      }
+    });
+    this.tick();
+  }
+};
+
+var alarm = new Timer(1000, true);
+alarm.onComplete = function(){
+  console.log("RING!");
+};
+
+var tnt = new timer(1000, flase);
+tnt.onTick = function(){
+  console.info("tick...");
+};
+tnt.onComplete = function(){
+
+  console.error("BOOM!");
+}
+
+             </script>
+    </body>
+    </html>
