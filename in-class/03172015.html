@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8">
+
+    <style>
+
+
+    </style>
+    <title> </title>
+    </head>
+    <body>
+
+      <div class="calc"></div>
+      <script type="text/html" id ="calc-template">
+        <!-- Input : <%= input %> vlaue:  <%=value %> -->
+        <div class="value" <%= value %></div>
+        <input class="clac-input" value="<%= input %>">
+        <button class="op" data-op="add">+</button>
+        <button class="op" data-op="subtract">-</button>
+      </script>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js></script>
+ <script>
+  var Calculator = Backbone.Model.extend({
+
+  defaults :{
+    value : 1,
+    input: 2,
+    operation : "add"
+  },
+  calculate : function (){
+var operation = this.get("operation")
+    if (this.operation == "add"){
+      var value = this.get("value");
+      var input = this.get("input");
+
+      //this.value = this.value + this.input;
+      this.set("value", value + input);
+    }
+
+    if (this.operation == "subtract"){
+      this.set("value", value - input);
+    }
+  }
+  });
+  var CalculatorView = Backbone.View.extend({
+    el: ".calc",
+    template: _.template($("#calc-template").html()),
+    events:{
+      "click .op": "operate",
+      "change .cala-input": "updateInput",
+      "Keyup .cala-input": "updateInput",
+    initialize : function(){
+      this.listenTo(this.model, "change", this.render);
+    },
+render : function (){
+  var html = this.template(this.model.toJSON());
+  this.$el.html(html);
+  // console.log("I changed!")
+  // this.$el.html("I have changed!");
+},
+operate : function (e){
+  var $button =$(e.target);
+  var operation =$button.attr("data-op");
+  this.model.set("operation", operation);
+  this.model.calculate();
+  // console.log(e);
+},
+  updateInput: function(e){
+    var $input =$(e.target);
+    this.model.set("input", $input.val() *1, {
+      silent : true
+
+  }
+});
+  });
+  var calc = new Calculator ();
+  var view = new CalculatorView ({model: calc});
+view.render() ;
+  // // var calc = new Calculator ();
+  // //
+  // // calc.on("change:value",function(model) {
+  // // }
+  // //   console.log(model.changed);
+  //
+  // });
+      </script>
+    </body>
+    </html>
